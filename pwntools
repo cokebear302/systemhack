@@ -1,0 +1,13 @@
+from pwn import *
+
+r = remote('HOST', PORT) # 호스트와 포트번호
+
+r.interactive() # pwntools에서 프로그램/서버와 직접 대화할 수 있게 전환하는 함수
+#이런형식으로 작성된다
+
+
+sendline() #는 pwntools에서 데이터를 서버로 보내고 마지막에 Enter(\n)까지 붙여주는 함수.
+send() #는 pwntools에서 데이터를 서버로 보내는 함수 *\n 이 안붙음*
+
+
+recvuntil() #는 pwntools에서 "특정 문자열이 나올 때까지 서버 데이터를 받아라"라는 뜻.
