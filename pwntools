@@ -1,3 +1,4 @@
+
 from pwn import *
 
 r = remote('HOST', PORT) # 호스트와 포트번호
@@ -11,3 +12,38 @@ send() #는 pwntools에서 데이터를 서버로 보내는 함수 *\n 이 안�
 
 
 recvuntil() #는 pwntools에서 "특정 문자열이 나올 때까지 서버 데이터를 받아라"라는 뜻.
+
+
+---------------------------------------------------------------------
+flag-shop
+
+import sys
+from pwn import *
+
+if len(sys.argv) != 3:
+    print("How to use: python3 items-flags.py [HOST] [PORT]")
+    exit()
+
+r = remote(sys.argv[1], int(sys.argv[2]))
+
+r.recvuntil(b"There are 50 rounds.\n")
+
+for round in range(50):
+    r.recvline()
+    response = 0
+
+    for i in range(10):
+        if b"flag" in r.recvline():
+            response = i
+            break
+
+    r.sendlineafter(b"> ", str(response).encode())
+
+r.interactive()
+
+• remote: 원격 서버에 접속합니다.
+• recvuntil: 첫 번째 인자로 전달된 데이터까지 수신하여 반환합니다. drop 인자를 True로 만들면 수신한 데이터에서 첫 번째 인자를 제외하고 반환합니다.
+• recvline: 개행 문자열까지 데이터를 수신하여 반환합니다.
+• sendlineafter: 첫 번째 인자로 전달된 데이터까지 수신하고 두 번째 인자로 전달된 데이터의 끝에 개행 문자를 붙여 송신합니다.
+• interactive: 실시간으로 송수신할 수 있는 셸을 생성합니다.
+
