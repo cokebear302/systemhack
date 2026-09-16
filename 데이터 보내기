@@ -1,0 +1,22 @@
+2. 데이터 보내기
+send() #그대로 전송.
+
+p.send(b"hello")
+sendline() #전송하고 \n까지 붙임.
+
+p.sendline(b"hello") #보통 프로그램이 gets(), scanf() 등으로 입력받을 때 많이 사용해.
+
+sendafter() #특정 문자열이 올 때까지 기다린 뒤 전송.
+
+p.sendafter(b"> ", b"hello")
+sendlineafter()
+
+가장 자주 볼 만한 형태.
+
+p.sendlineafter(b"> ", b"hello")
+
+뜻:
+
+"> " 받을 때까지 기다림
+        ↓
+hello\n 전송
