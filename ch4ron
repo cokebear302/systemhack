@@ -1,0 +1,31 @@
+from pwn import *
+
+1. 연결 / 프로세스
+함수	용도
+process()	로컬 바이너리 실행
+remote()	원격 서버 연결
+ssh()	SSH 연결
+listen()	로컬 포트를 열고 연결을 대기하는 튜브(tube) 객체를 생성합니다
+
+
+r = remote("HOST",PORT) # remote는 host와 port를 받아 타겟을 정한다.
+p = process('/경로 설정/실행 파일') 예 (/home/kali/dwd/exploit) 
+s = ssh(user='username', host='example.com', port=22, password='password')
+
+  
+# 1. 포트 열기 (임의 포트 또는 특정 포트 지정 가능, 예: listen(4444) 또는 빈 칸으로 자동 할당)
+l = listen()
+print(f"Listening on port {l.lport}")
+
+# 2. 다른 소켓(또는 remote)에서 이 포트로 접속 시뮬레이션
+r = remote('127.0.0.1', l.lport)
+
+# 3. 클라이언트 연결 수락 대기 (필수!)
+c = l.wait_for_connection()
+
+# 4. 데이터 송수신
+r.send(after := b'hello server')
+print(c.recv())
+
+c.close()
+l.close()
