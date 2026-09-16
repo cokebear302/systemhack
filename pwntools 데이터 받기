@@ -1,0 +1,18 @@
+3. 데이터 받기
+recv()
+data = p.recv()
+현재 받을 수 있는 데이터를 받음.
+
+recvline() #한 줄 받기.
+data = p.recvline()
+
+recvuntil() #특정 문자열이 나올 때까지 받음.
+p.recvuntil(b"Input: ")
+
+recvregex() #정규식에 맞는 데이터가 나올 때까지 받음.
+p.recvregex(b"flag{.*}")
+
+interactive()
+p.interactive()
+
+프로그램과 직접 상호작용.
