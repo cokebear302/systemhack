@@ -1,0 +1,22 @@
+# ========================================
+# 10. 출력 / 디버깅
+# ========================================
+
+# 일반 출력
+print(data)
+
+
+# 정보 출력
+log.info("Starting exploit")
+
+
+# 성공 메시지
+log.success("Success!")
+
+
+# 경고
+log.warning("Something went wrong")
+
+
+# 에러
+log.error("Error!")
