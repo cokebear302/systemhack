@@ -26,3 +26,11 @@ elf.plt["puts"]
 
 # 프로그램의 기준 주소
 elf.address
+
+
+ex) 
+elf = ELF("./chall")
+
+read_flag = elf.symbols["read_flag"]
+
+print(hex(read_flag))
