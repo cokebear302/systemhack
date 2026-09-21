@@ -1,0 +1,11 @@
+# ========================================
+# 12. 명령줄 인자
+# ========================================
+
+# exploit.py LOCAL
+# exploit.py REMOTE
+
+if args.LOCAL:
+    p = process("./chall")
+else:
+    p = remote("host3.dreamhack.games", 14938)
