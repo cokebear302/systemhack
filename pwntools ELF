@@ -1,0 +1,28 @@
+# ========================================
+# 4. ELF 분석
+# ========================================
+
+# ELF()
+# 실행 파일 분석
+elf = ELF("./chall")
+
+
+# symbols
+# 심볼들의 주소 확인
+elf.symbols
+
+
+# 특정 함수 주소
+read_flag = elf.symbols["read_flag"]
+
+
+# GOT 주소
+elf.got["puts"]
+
+
+# PLT 주소
+elf.plt["puts"]
+
+
+# 프로그램의 기준 주소
+elf.address
