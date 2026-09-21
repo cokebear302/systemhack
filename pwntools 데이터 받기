@@ -13,6 +13,4 @@ recvregex() #정규식에 맞는 데이터가 나올 때까지 받음.
 p.recvregex(b"flag{.*}")
 
 interactive()
-p.interactive()
-
-프로그램과 직접 상호작용.
+p.interactive() #프로그램과 직접 상호작용.
