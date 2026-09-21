@@ -1,0 +1,23 @@
+# ========================================
+# 6. Offset 찾기
+# ========================================
+
+# cyclic()
+# 중복되지 않는 패턴 생성
+pattern = cyclic(200)
+
+
+# cyclic_find()
+# 특정 값이 패턴의 몇 번째 위치인지 찾음
+offset = cyclic_find(value)
+
+ex)
+p = process("./chall")
+
+p.sendline(cyclic(200))
+p.wait()
+
+core = p.corefile
+
+print("EIP =", hex(core.eip))
+print("offset =", cyclic_find(core.eip))
