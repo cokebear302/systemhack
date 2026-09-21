@@ -1,0 +1,21 @@
+ELF()
+elf = ELF("./chall") #ELF 파일을 분석할 수 있게 해줌.
+
+elf.symbols
+
+함수 주소 확인.
+
+elf.symbols["main"]
+elf.symbols["read_flag"]
+elf.got
+
+GOT 주소.
+
+elf.got["puts"]
+elf.plt
+
+PLT 주소.
+elf.plt["puts"]
+
+elf.address #현재 ELF의 base address.
+print(hex(elf.address))
