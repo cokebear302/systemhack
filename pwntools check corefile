@@ -1,0 +1,19 @@
+# ========================================
+# 7. Corefile
+# ========================================
+
+# 프로그램이 crash된 후 core 파일 가져오기
+core = p.corefile
+
+
+# 32비트 프로그램의 EIP 확인
+print(hex(core.eip))
+
+
+# 64비트 프로그램의 RIP 확인
+print(hex(core.rip))
+
+
+# Stack 확인
+print(hex(core.esp))   # 32비트
+print(hex(core.rsp))   # 64비트
