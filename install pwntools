@@ -1,0 +1,4 @@
+sudo apt-get install libcapstone-dev
+pip install pwntools
+
+pip install pwntools --break-system-packages
